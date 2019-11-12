@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The Odin Project Assignment: RockPaperScissors</title>
+    </head>
+    <body>
+        <script>
+            let playerSelection = prompt("Lets play rock, paper, scissors! Please enter either rock / paper / scissors [NOTE: CASE SENSITIVE]")
+            const win = "Congrats! You won!:D"
+            const tie = "Wow. It's a draw! :O"
+            const lose = "Sorry. You lost! :("
+            let computerOptions = ["rock", "paper", "scissors"]
+            const computerSelection = computerPlay()
+            
+            function playRound(playerSelection, computerSelection){
+                if(playerSelection == "rock"){
+                        if(computerSelection == "rock")
+                            alert(tie)
+                        else if(computerSelection == "paper")
+                            alert(lose)
+                        else if(computerSelection == "scissors")
+                           alert(win)
+                }
+                else if(playerSelection == "paper"){
+                    if(computerSelection == "rock")
+                                alert(win)
+                            else if(computerSelection == "paper")
+                                alert(tie)
+                            else if(computerSelection == "scissors")
+                                alert(lose)
+                }
+                else if(playerSelection == "scissors"){
+                    if(computerSelection == "rock")
+                            alert(lose)
+                        else if(computerSelection == "paper")
+                            alert(win)
+                        else if(computerSelection == "scissors")
+                           alert(tie)
+                }
+                else{
+                    alert("User Input Error")
+                }            
+            }
+            function playRoundSwitch(playerSelection, computerSelection){
+                console.log("This following was implemented using switch function. Alert uses if-else statements.")
+                switch(playerSelection){
+                    case "rock":
+                        if(computerSelection == "rock")
+                                console.log(tie)
+                            else if(computerSelection == "paper")
+                                console.log(lose)
+                            else if(computerSelection == "scissors")
+                                console.log(win)
+                        break;
+                    case "paper":
+                        if(computerSelection == "rock")
+                                console.log(win)
+                            else if(computerSelection == "paper")
+                                console.log(tie)
+                            else if(computerSelection == "scissors")
+                                console.log(lose)
+                        break;
+                    case "scissors":
+                        if(computerSelection == "rock")
+                                console.log(lose)
+                            else if(computerSelection == "paper")
+                                console.log(win)
+                            else if(computerSelection == "scissors")
+                                console.log(tie)
+                        break;
+                    default:
+                        console.log("User Input Error")
+                }
+            }
+            function computerPlay(){
+                let computerSelection = computerOptions[Math.floor(Math.random()*(computerOptions.length))];
+                return computerSelection;
+            }
+
+            console.log("User plays: " + playerSelection)
+            console.log("Computer plays: " + computerSelection)
+            playRound(playerSelection, computerSelection)
+            playRoundSwitch(playerSelection, computerSelection)
+        </script>
+    </body>
+</html>
